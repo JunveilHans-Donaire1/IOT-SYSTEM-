@@ -1,0 +1,155 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* PAGE BACKGROUND */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+
+  /* CENTER CONTENT */
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  flex-direction: column;
+}
+
+/* CENTER CONTAINER */
+.container {
+  max-width: 1500px;
+  width: 100%;
+  padding: 30px;
+  margin: 0; /* remove previous vertical margin */
+}
+
+/* CARD STYLE */
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+
+  /* optional: make card slightly responsive */
+  max-width: 400px;
+  width: 100%;
+}
+
+/* HEADINGS */
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #2c5364;
+}
+
+h2 {
+  text-align: center;
+  color: #2c5364;
+}
+
+/* LOGIN FORM */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 350px;
+  margin: 20px auto 0 auto; /* center form inside card */
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #2c5364;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-form button:hover {
+  background: #203a43;
+}
+
+/* DASHBOARD GRID */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* INFO BOX */
+.stat-box {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-box h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.stat-box p {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px 0 0;
+  color: #2c5364;
+}
+
+/* ACTION BUTTONS */
+.actions {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.actions button {
+  padding: 12px 22px;
+  margin: 8px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reset-btn {
+  background: #28a745;
+  color: white;
+}
+
+.reset-btn:hover {
+  background: #218838;
+}
+
+.logout-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.logout-btn:hover {
+  background: #c82333;
+}
+
+/* FOOTER STATUS */
+.status {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
