@@ -1,0 +1,117 @@
+/* Center everything */
+.profile-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f6f9;
+}
+
+/* Card */
+.profile-card {
+  width: 550px;
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Title */
+.title {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: black;
+}
+
+/* Image */
+.image-container {
+  position: relative;
+  width: 130px;
+  margin: auto;
+}
+
+.image-container img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 4px solid #007bff;
+}
+
+/* Camera button (modern floating style) */
+.camera-btn {
+  position: center;
+  bottom: 8px;
+  right: 8px;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  /* smooth shadow */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  /* animation */
+  transition: all 0.3s ease;
+}
+
+/* Icon size */
+.camera-btn svg {
+  font-size: 16px;
+}
+
+/* Hover effect */
+.camera-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Click (press) effect */
+.camera-btn:active {
+  transform: scale(0.95);
+}
+
+/* Optional glow effect */
+.camera-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(0, 123, 255, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.camera-btn:hover::after {
+  opacity: 1;
+}
+/* Info section */
+.info {
+  margin-top: 25px;
+  color: black;
+}
+
+/* Each row */
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background: #f8f9fa;
+  justify-content: flex-start;
+}
+
+
+/* Status highlight */
+.status {
+  background: #e6f4ea;
+  color: green;
+}
