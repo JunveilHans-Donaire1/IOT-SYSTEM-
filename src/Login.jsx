@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "./firebaseConfig.js";
@@ -195,10 +196,10 @@ class Login extends Component {
         <div className="card-login">
         <img
   src={logo}
-  style={{ width: "80px", marginBottom: "10px" }}
+  style={{ width: "130px", marginBottom: "10px" }}
 />
 
-          <h2>Welcome Back</h2>
+          <h2>Welcome Back!</h2>
 
           {error && <div className="error-message">{error}</div>}
 
