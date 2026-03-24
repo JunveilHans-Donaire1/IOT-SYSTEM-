@@ -59,7 +59,7 @@ class Home extends Component {
       <div className="dashboard">
 
         {/* Bottle Count */}
-        <div className="stat-box">
+        <div className="stat-box bottle-line">
           <FaWineBottle className="stat-icon" />
           <h3>Total Bottles</h3>
 
@@ -79,14 +79,14 @@ class Home extends Component {
         </div>
 
         {/* Trash Distance */}
-        <div className="stat-box">
+        <div className="stat-box distance-line">
           <FaArrowsAltV className="stat-icon" />
           <h3>Trash Distance</h3>
           <p>{trashDistance} cm</p>
         </div>
 
         {/* Status */}
-        <div className="stat-box">
+        <div className="stat-box status-line">
           <FaCheckCircle className="stat-icon" />
           <h3>Status</h3>
           <p>{status}</p>

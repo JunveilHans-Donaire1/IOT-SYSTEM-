@@ -2,13 +2,10 @@ import React, { Component } from "react";
 import Home from "./Home.jsx";
 import History from "./History.jsx";
 import Profile from "./Profile.jsx";
-
 import { FaHome, FaHistory, FaUser, FaSignOutAlt } from "react-icons/fa";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebaseConfig.js";
-
 import { getDatabase, ref, set } from "firebase/database";
-
 import "./Dashboard.css";
 import logo from "./assets/smartlogo.png";
 
@@ -63,7 +60,9 @@ class Dashboard extends Component {
         <nav className="nav-bar">
 
           <div className="logo-container">
+            <div className="logo-bg"> {/* para ni sa logo nga mabutngan white bg */}
             <img src={logo} alt="Logo" className="logo" />
+            </div>
             <h2 className="app-name">Smart Trash Bin</h2>
           </div>
 

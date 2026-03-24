@@ -1,312 +1,47 @@
-/* History.css - Styling for History component */
+/* 🔥 REMOVE GLOBAL div {} BUG */
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.history-container {
+  width: 100%;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-}
-
-/* Main container - since your component uses <div> without a class */
-div {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 1.5rem;
-}
-
-/* Headers */
+/* TITLE */
 h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: white;
-  margin: 2rem 0 1.5rem 0;
-  padding-bottom: 0.75rem;
-  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  position: relative;
+  margin-bottom: 10px;
+  color: #8ab136;
 }
 
-h2:first-of-type {
-  margin-top: 0;
-}
-
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 100px;
-  height: 3px;
-  background: white;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-/* Table container to handle overflow */
+/* TABLE */
 table {
   width: 100%;
-  border-collapse: collapse;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 16px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Table header */
-thead {
-  background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 th {
+  background: #19974e;
   color: white;
-  font-weight: 600;
-  padding: 1rem 1.5rem;
-  text-align: left;
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
-}
-
-/* Table body */
-td {
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  color: #2d3748;
-}
-
-tbody tr {
-  transition: all 0.2s ease;
-}
-
-tbody tr:hover {
-  background: rgba(102, 126, 234, 0.1);
-}
-
-tbody tr:last-child td {
-  border-bottom: none;
-}
-
-/* Empty state */
-td[colspan] {
+  padding: 10px;
   text-align: center;
-  padding: 3rem;
-  color: #718096;
-  font-style: italic;
-  background: rgba(255, 255, 255, 0.5);
 }
 
-/* Delete button */
+td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+tr:hover {
+  background: #f9fafb;
+}
+
+/* BUTTON */
 button {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 8px;
-  color: #a0aec0;
-  transition: all 0.2s ease;
-  font-size: 1.1rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-button:hover {
-  background: #fed7d7;
-  color: #e53e3e;
-  transform: scale(1.1);
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
-/* Timestamp styling */
-td:first-child {
-  font-family: 'Inter', monospace;
-  font-size: 0.95rem;
-  color: #4a5568;
-}
-
-/* Status text styling */
-td:nth-child(2) {
-  font-weight: 600;
-}
-
-/* Status colors based on content */
-td:nth-child(2):contains("FULL") {
-  color: #e53e3e;
-}
-
-td:nth-child(2):contains("NOTFULL") {
-  color: #38a169;
-}
-
-td:nth-child(2):contains("HALF") {
-  color: #d69e2e;
-}
-
-/* Distance value */
-td:nth-child(3) {
-  font-weight: 600;
-  color: #667eea;
-}
-
-/* Bottle count */
-td:nth-child(2) {
-  font-weight: 600;
-  color: #667eea;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  table {
-    background: rgba(26, 32, 44, 0.95);
-  }
-  
-  td {
-    color: #e2e8f0;
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  td:first-child {
-    color: #cbd5e0;
-  }
-  
-  td[colspan] {
-    color: #a0aec0;
-    background: rgba(45, 55, 72, 0.5);
-  }
-  
-  tbody tr:hover {
-    background: rgba(102, 126, 234, 0.2);
-  }
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  div {
-    padding: 1rem;
-  }
-  
-  h2 {
-    font-size: 1.4rem;
-    margin: 1.5rem 0 1rem 0;
-  }
-  
-  /* Make tables scrollable horizontally */
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  
-  th, td {
-    padding: 0.75rem 1rem;
-  }
-  
-  /* Adjust font sizes for mobile */
-  td:first-child {
-    font-size: 0.85rem;
-  }
-  
-  button {
-    padding: 0.4rem;
-  }
-}
-
-/* Tablet adjustments */
-@media (min-width: 769px) and (max-width: 1024px) {
-  div {
-    padding: 1.25rem;
-  }
-  
-  h2 {
-    font-size: 1.6rem;
-  }
-  
-  th, td {
-    padding: 0.9rem 1.25rem;
-  }
-}
-
-/* Loading animation for table rows */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-tbody tr {
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Custom scrollbar for tables */
-::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(102, 126, 234, 0.5);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(102, 126, 234, 0.8);
-}
-
-/* Print styles */
-@media print {
-  body {
-    background: white;
-  }
-  
-  table {
-    box-shadow: none;
-    border: 1px solid #ddd;
-  }
-  
-  button {
-    display: none;
-  }
-  
-  h2 {
-    color: black;
-    text-shadow: none;
-  }
-  
-  h2::after {
-    background: #667eea;
-  }
 }
