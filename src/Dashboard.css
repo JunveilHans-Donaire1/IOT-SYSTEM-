@@ -1,524 +1,155 @@
-/* Dashboard.css - Complete Rewrite */
-
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-/* CSS Variables for easy customization */
 :root {
   --sidebar-width: 280px;
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --hover-bg: rgba(255, 255, 255, 0.15);
-  --active-bg: rgba(255, 255, 255, 0.25);
-  --danger-bg: rgba(255, 99, 132, 0.15);
-  --danger-hover: rgba(255, 99, 132, 0.25);
-  --transition-speed: 0.3s;
+  --primary: #9fe3c2;
+  --primary-dark: #6fcf97;
+  --bg: #f0fdf4;
+  --white: #ffffff;
+  --text: #1f2937;
 }
 
-/* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--primary-gradient);
-  min-height: 100vh;
-  width: 100%;
-  color: var(--text-primary);
-}
-
-#root {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-}
-
-/* Main Dashboard Container */
+/* MAIN LAYOUT */
 .dashboard-container {
   display: flex;
-  width: 100vw;
-  min-height: 100vh;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
-
-/* Sidebar Styles */
-.nav-bar {
-  width: var(--sidebar-width);
-  min-width: var(--sidebar-width);
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  border-right: 1px solid var(--glass-border);
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1.5rem;
-  box-shadow: var(--glass-shadow);
+  width: 100%;
   height: 100vh;
-  position: sticky;
-  top: 0;
-  left: 0;
-  overflow-y: auto;
-  transition: all var(--transition-speed) ease;
-}
-
-/* Custom scrollbar for sidebar */
-.nav-bar::-webkit-scrollbar {
-  width: 5px;
-}
-
-.nav-bar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.nav-bar::-webkit-scrollbar-thumb {
-  background: var(--glass-border);
-  border-radius: 10px;
-}
-
-.nav-bar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* Logo Container */
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2.5rem;
-  padding: 1rem 0 1.5rem 0;
-  border-bottom: 2px solid var(--glass-border);
-  position: relative;
   overflow: hidden;
 }
 
-.logo-container::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-  animation: shimmer 2s infinite;
+.page-container {
+  background: #e3f3e3;
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #e0e0e0 0%, #bef2c2 100%);
 }
 
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+/* ===== SIDEBAR FIX ===== */
+.nav-bar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: #348634;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-right: none;
+
+  /* FIX GAP */
+  margin: 0;
+}
+
+/* LOGO */
+.logo-container {
+  text-align: center;
+  margin-bottom: 30px;
+  
+}
+
+.logo-bg {
+  background: white;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin: 0 auto 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .logo {
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-  transition: all var(--transition-speed) cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 10px;
-  backdrop-filter: blur(5px);
-}
-
-.logo:hover {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 130px;
+  height: auto;
 }
 
 .app-name {
-  color: black;
-  font-size: 1.4rem;
+  font-size: 28px;
   font-weight: 700;
-  text-align: center;
-  letter-spacing: 1px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ddd91f;
+  margin-top: 10px;
 }
 
-/* Navigation Buttons Container */
+/* NAV BUTTONS */
 .nav-buttons {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 10px;
 }
 
-/* Base Button Styles */
-.nav-bar button {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  color: black;
-  padding: 1rem 1.5rem;
-  border-radius: 16px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
+.nav-buttons button {
   display: flex;
   align-items: center;
-  gap: 12px;
-  transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
-  width: 100%;
+  gap: 15px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav-buttons button, .logout-btn {
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-bar button {
+  padding: 12px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
   text-align: left;
-  position: relative;
-  overflow: hidden;
+  cursor: pointer;
+  font-size: 17px;
+  color: var(--text);
+  transition: 0.2s;
 }
 
-/* Button Hover Effect */
-.nav-bar button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.nav-bar button:hover::before {
-  left: 100%;
+.nav-buttons button svg {
+  font-size: 25px; /* bigger icons */
 }
 
 .nav-bar button:hover {
-  background: var(--hover-bg);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: translateX(10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: var(--primary);
 }
 
-.nav-bar button:active {
-  transform: translateX(5px);
-}
-
-.nav-bar button svg {
-  font-size: 1.3rem;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-  transition: transform var(--transition-speed) ease;
-}
-
-.nav-bar button:hover svg {
-  transform: scale(1.1);
-}
-
-/* Active button state */
 .nav-bar button.active {
-  background: var(--active-bg);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
-  font-weight: 600;
+  background: var(--primary-dark);
+  color: white;
 }
 
-.nav-bar button.active svg {
-  color: #fcfafa;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
-}
-
-/* Logout button styling */
+/* LOGOUT */
 .logout-btn {
-  margin-top: auto;
-  background: var(--danger-bg) !important;
-  border-color: rgba(192, 240, 81, 0.4) !important;
-  position: relative;
+  margin-top: auto; /* keeps it at the bottom */
+  display: flex;
+  align-items: center;
+  gap: 15px;       /* same spacing as nav buttons */
+  padding: 12px;    /* same padding as nav buttons */
+  border: none;
+  background: transparent; /* same as nav buttons */
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 17px;    /* same font size as nav buttons */
+  color: var(--text); /* same text color */
+  transition: background 0.3s, color 0.3s;
 }
 
+.logout-btn svg {
+  font-size: 25px;   /* match nav button icon size */
+}
+
+/* Hover effect matches nav buttons */
 .logout-btn:hover {
-  background: var(--danger-hover) !important;
-  border-color: rgba(36, 29, 30, 0.6) !important;
+  background: var(--primary);
+  color: white;
 }
 
-/* Main content area */
+/* ===== CONTENT AREA FIX ===== */
 .page-container {
   flex: 1;
-  padding: 2rem;
+  padding: 20px;
   overflow-y: auto;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  margin: 1.5rem;
-  border-radius: 28px;
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  width: calc(100% - var(--sidebar-width) - 3rem);
-  height: calc(100vh - 3rem);
-  transition: all var(--transition-speed) ease;
-  animation: fadeIn 0.5s ease;
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Content Area Styling */
-.page-container > * {
-  color: var(--text-primary);
-}
-
-/* Custom scrollbar for page container */
-.page-container::-webkit-scrollbar {
-  width: 8px;
-}
-
-.page-container::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-}
-
-.page-container::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-  border: 2px solid transparent;
-}
-
-.page-container::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-/* Ultra-wide screens */
-@media screen and (min-width: 1920px) {
-  :root {
-    --sidebar-width: 340px;
-  }
-  
-  .nav-bar {
-    padding: 2.5rem 2rem;
-  }
-  
-  .logo {
-    width: 110px;
-    height: 110px;
-  }
-  
-  .app-name {
-    font-size: 1.6rem;
-  }
-  
-  .nav-bar button {
-    padding: 1.2rem 2rem;
-    font-size: 1.1rem;
-  }
-}
-
-/* Large screens */
-@media screen and (max-width: 1200px) {
-  :root {
-    --sidebar-width: 260px;
-  }
-  
-  .nav-bar {
-    padding: 1.5rem 1rem;
-  }
-  
-  .logo {
-    width: 80px;
-    height: 80px;
-  }
-}
-
-/* Tablets */
-@media screen and (max-width: 768px) {
-  .dashboard-container {
-    flex-direction: column;
-  }
-
-  :root {
-    --sidebar-width: 100%;
-  }
-
-  .nav-bar {
-    width: 100%;
-    min-width: 100%;
-    height: auto;
-    position: relative;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 1rem;
-    border-right: none;
-    border-bottom: 1px solid var(--glass-border);
-  }
-
-  .logo-container {
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    padding: 0.5rem 0;
-  }
-  
-  .logo {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 0;
-  }
-  
-  .app-name {
-    font-size: 1.3rem;
-    margin-bottom: 0;
-  }
-
-  .nav-buttons {
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    margin: 0.5rem 0;
-  }
-
-  .nav-bar button {
-    margin: 0 0.3rem;
-    padding: 0.8rem 1.2rem;
-    justify-content: center;
-    width: auto;
-  }
-
-  .nav-bar button:hover {
-    transform: translateY(-3px);
-    transform: translateX(0);
-  }
-
-  .logout-btn {
-    margin-top: 0;
-    width: 100%;
-  }
-
-  .page-container {
-    width: calc(100% - 2rem);
-    height: calc(100vh - 220px);
-    margin: 1rem;
-    padding: 1.5rem;
-  }
-  
-}
-
-/* Mobile phones */
-@media screen and (max-width: 480px) {
-  .nav-bar button {
-    padding: 0.7rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  .nav-bar button span {
-    display: none;
-  }
-  
-  .logo-container {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .logo {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .app-name {
-    font-size: 1.1rem;
-  }
-  
-  .page-container {
-    padding: 1rem;
-    margin: 0.75rem;
-    width: calc(100% - 1.5rem);
-    border-radius: 20px;
-  }
-}
-
-/* Landscape mode */
-@media screen and (max-height: 600px) and (orientation: landscape) {
-  .nav-bar {
-    padding: 0.5rem;
-  }
-  
-  .logo-container {
-    width: auto;
-    flex-direction: row;
-    margin-bottom: 0.5rem;
-    padding: 0.25rem;
-  }
-  
-  .logo {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .app-name {
-    font-size: 1rem;
-  }
-  
-  .nav-bar button {
-    padding: 0.5rem 0.8rem;
-    margin: 0.2rem;
-  }
-  
-  .page-container {
-    height: calc(100vh - 120px);
-  }
-}
-
-/* Loading animation for content transitions */
-.page-container {
-  position: relative;
-}
-
-.page-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-  animation: loadingShimmer 2s infinite;
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-@keyframes loadingShimmer {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-/* Glass card effect for content inside page-container */
-.glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.glass-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  /* 🔥 REMOVE CAUSE OF SCROLL */
+  margin: 0;
+  height: 100vh;
 }
