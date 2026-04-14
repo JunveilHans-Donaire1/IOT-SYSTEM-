@@ -6,7 +6,7 @@
 
 /* CARD */
 .stat-box {
-  background: white;
+  background: rgb(96, 189, 96);
   border-radius: 10px;
   padding: 25px;
   text-align: center;
@@ -50,7 +50,7 @@
 /* TEXT */
 .stat-box h3 {
   margin-top: 10px;
-  color: #757675;
+  color: #0c0c0c;
   margin-top: 15px;
   margin-bottom: 15px;
   font-size: 25px;

@@ -1,3 +1,4 @@
+
 :root {
   --sidebar-width: 280px;
   --primary: #9fe3c2;
@@ -145,11 +146,157 @@
 
 /* ===== CONTENT AREA FIX ===== */
 .page-container {
+  text-align: center;
   flex: 1;
+  background-color: #6fcf97;
   padding: 20px;
   overflow-y: auto;
 
   /* 🔥 REMOVE CAUSE OF SCROLL */
   margin: 0;
   height: 100vh;
+}
+/* Container */
+.collection-form {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #51d35c;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.collection-form h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Inputs */
+.collection-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* Input focus effect */
+.collection-form input:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Button */
+.collection-form button {
+  width: 100%;
+  padding: 12px;
+  background:#6bca68;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Button hover */
+.collection-form button:hover {
+  background: #45a049;
+}
+/* ===== SENSOR MONITORING CONTAINER ===== */
+.sensor-status {
+  margin-top: 25px;
+}
+
+.sensor-status h3 {
+  margin-bottom: 15px;
+  font-size: 50px;
+  color: #1e293b;
+}
+
+/* ===== GRID LAYOUT ===== */
+.sensor-status {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* ===== SENSOR CARD ===== */
+.sensor-card {
+  background: #6bca68;
+  padding: 80px;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+  border-left: 6px solid #3b82f6; /* default blue */
+}
+
+.sensor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== TITLES ===== */
+.sensor-card h4 {
+  margin-bottom: 10px;
+  font-size: 56px;
+  color: #0f172a;
+}
+
+/* ===== TEXT ===== */
+.sensor-card p {
+  margin: 6px 0;
+  font-size: 30px;
+  color: #334155;
+}
+
+/* ===== OPTIONAL STATUS COLORS ===== */
+.sensor-card p span {
+  font-weight: bold;
+}
+
+/* ACTIVE / INACTIVE */
+.active {
+  color: #10b981; /* green */
+}
+
+.inactive {
+  color: #ef4444; /* red */
+}
+
+/* DETECTED / NOT DETECTED */
+.detected {
+  color: #f59e0b; /* yellow */
+}
+
+.not-detected {
+  color: #64748b; /* gray */
+}
+
+/* ===== SPECIAL BORDER COLORS (OPTIONAL) ===== */
+.sensor-card.ultrasonic {
+  border-left: 6px solid #3b82f6; /* blue */
+}
+
+.sensor-card.ir {
+  border-left: 6px solid #8b5cf6; /* purple */
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .sensor-card {
+    padding: 15px;
+  }
+}
+/* Responsive */
+@media (max-width: 500px) {
+  .collection-form {
+    margin: 15px;
+    padding: 20px;
+  }
 }
