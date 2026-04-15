@@ -8,9 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #046f38;
 }
-
 /* CARD */
 .card-login {
   background: rgba(207, 214, 204, 0.9);
