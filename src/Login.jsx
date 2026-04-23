@@ -199,7 +199,7 @@ class Login extends Component {
   style={{ width: "130px", marginBottom: "10px" }}
 />
 
-          <h2>Welcome Back!</h2>
+          <h2>Welcome!</h2>
 
           {error && <div className="error-message">{error}</div>}
 

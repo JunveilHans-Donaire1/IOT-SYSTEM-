@@ -1,7 +1,9 @@
 :root {
   --bg: #8fc89f;
 }
-
+body{
+  background-color: green;
+}
 /* CENTER */
 .container-login {
   height: 100vh;
