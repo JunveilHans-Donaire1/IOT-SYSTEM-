@@ -1,16 +1,12 @@
-/* 🔥 REMOVE GLOBAL div {} BUG */
-
 .history-container {
   width: 100%;
 }
 
-/* TITLE */
 h2 {
   margin-bottom: 10px;
-  color: #8ab136;
+  color: #304b30;
 }
 
-/* TABLE */
 table {
   width: 100%;
   border-collapse: separate;
@@ -23,7 +19,7 @@ table {
 }
 
 th {
-  background: #19974e;
+  background: #2e7d32;
   color: white;
   padding: 10px;
   text-align: center;
@@ -39,7 +35,6 @@ tr:hover {
   background: #f9fafb;
 }
 
-/* BUTTON */
 button {
   background: none;
   border: none;

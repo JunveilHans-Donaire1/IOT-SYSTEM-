@@ -1,47 +1,49 @@
 :root {
   --bg: #8fc89f;
 }
-body{
-  background-color: green;
-}
-/* CENTER */
+
 .container-login {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: radial-gradient(circle at 20% 30%, #0c8745, #046f38 40%, #043a1c 90%);
+  position: relative;
+  overflow: hidden;
 }
-/* CARD */
+
 .card-login {
-  background: rgba(207, 214, 204, 0.9);
-  backdrop-filter: blur(10px);
+  background: rgba(207, 214, 204, 0.85);
+  backdrop-filter: blur(12px);
   padding: 40px;
-  border-radius: 20px;
-  width: 360px;
+  border-radius: 24px;
+  width: 370px;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-login p {
   margin-top: 8px;
-  margin-bottom: 18px; /* ✅ adds space before button */
+  margin-bottom: 18px;
   font-size: 17px;
   color: #000000;
   text-align: center;
   cursor: pointer;
-  
 }
 
 .card-login p:hover {
-  color: #a2a011;       /* change text color on hover */
+  color: #e3ef3a;
   transform: scale(1.1); 
 }
 
-/* INPUT */
 .input-group input {
-  width: 100%; /* 🔥 FIXED */
+  width: 100%;
   height: 45px;
-  padding-left: 38px;   /* ✅ matches icon position */
+  padding-left: 38px;
   padding-right: 40px;
   border-radius: 10px;
   border: 1px solid #d1fae5;
@@ -64,25 +66,32 @@ body{
   pointer-events: none;
 }
 
-/* BUTTON */
 button[type="submit"] {
   width: 100%;
   height: 45px;
-  background: #0c8745;
+  background: linear-gradient(135deg, #0c8745, #046f38);
   border: none;
   border-radius: 8px;
   color: white;
   font-size: 15px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 button[type="submit"]:hover {
-  background: #a4b415;
+  background: #bdcf1a;
 }
 
 h2{
   font-size: 28px;
   margin-top: 10px;
+  background: linear-gradient(135deg, #046f38, #0c8745);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 700;
 }
 
 .password-toggle {
@@ -106,6 +115,5 @@ h2{
 .error-message {
   color: red;
   font-size: 15px;
-  
   text-align: left;
 }
