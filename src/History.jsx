@@ -1,3 +1,5 @@
+
+
 import React, { Component } from "react";
 import { ref, onValue, remove, set } from "firebase/database";
 import { FaTrashAlt } from "react-icons/fa";
@@ -10,12 +12,18 @@ class History extends Component {
     this.state = {
       history: [],
       bottleHistory: [],
+
+      // ✅ NEW STATE
+      collections: [],
     };
   }
 
   componentDidMount() {
     this.historyRef = ref(db, "history");
     this.bottleHistoryRef = ref(db, "bottleHistory");
+
+    // ✅ NEW REF
+    this.collectionsRef = ref(db, "collections");
 
     this.unsubHistory = onValue(this.historyRef, (snap) => {
       const data = snap.val() ?? {};
@@ -34,11 +42,24 @@ class History extends Component {
 
       this.setState({ bottleHistory: arr });
     });
+
+    // ✅ NEW LISTENER (collections)
+    this.unsubCollections = onValue(this.collectionsRef, (snap) => {
+      const data = snap.val() ?? {};
+      const arr = Object.keys(data)
+        .map((key) => ({ firebaseKey: key, ...data[key] }))
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      this.setState({ collections: arr });
+    });
   }
 
   componentWillUnmount() {
     if (this.unsubHistory) this.unsubHistory();
     if (this.unsubBottleHistory) this.unsubBottleHistory();
+
+    // ✅ CLEANUP
+    if (this.unsubCollections) this.unsubCollections();
   }
 
   deleteHistoryItem = (key) => {
@@ -50,8 +71,13 @@ class History extends Component {
     await set(ref(db, "bottleCount"), 0);
   };
 
+  // ✅ OPTIONAL DELETE (collections)
+  deleteCollectionItem = (key) => {
+    remove(ref(db, `collections/${key}`));
+  };
+
   render() {
-    const { history, bottleHistory } = this.state;
+    const { history, bottleHistory, collections } = this.state;
 
     return (
       <div>
@@ -114,9 +140,42 @@ class History extends Component {
             )}
           </tbody>
         </table>
+
+        {/* ✅ NEW TABLE */}
+        <h2>Collection History (Admin Input)</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Bottles Collected</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {collections.length === 0 ? (
+              <tr><td colSpan="3">No collection data</td></tr>
+            ) : (
+              collections.map((item) => (
+                <tr key={item.firebaseKey}>
+                  <td>{item.timestamp}</td>
+                  <td>{item.bottles}</td>
+                  <td>
+                    <button onClick={() => this.deleteCollectionItem(item.firebaseKey)}>
+                      <FaTrashAlt />
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
       </div>
     );
   }
 }
 
 export default History;
+
+
+

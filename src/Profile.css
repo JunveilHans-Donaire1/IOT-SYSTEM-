@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-  
 }
 
 .profile-card {
@@ -20,13 +19,12 @@
   position: relative;
   margin: auto;
   width: 220px;
-  
 }
 
 .image-container img {
-  width: 220px; /* bigger profile picture */
+  width: 220px;
   height: 220px;
-  border-radius: 50%; /* circle shape */
+  border-radius: 50%;
   border: 5px solid #6fcf97;
 }
 
@@ -60,7 +58,6 @@
   transform: scale(0.95);
 }
 
-/* Optional glow effect */
 .camera-btn::after {
   content: "";
   position: absolute;
@@ -80,8 +77,8 @@
 .info-row {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* align left for readability */
-  gap: 10px; /* space between icon and text */
+  justify-content: flex-start;
+  gap: 10px;
   font-size: 18px;
   border-radius: 8px;
   color: #333;
